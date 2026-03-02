@@ -1,0 +1,34 @@
+# oops-banner:UC3
+public class Banner {
+
+    public static void main(String[] args) {
+
+        System.out.println(String.join("", 
+                " *****  ", " *****  ", " *****  ", " ***** "
+        ));
+
+        System.out.println(String.join("", 
+                "*     * ", "*     * ", "*     * ", "*      "
+        ));
+
+        System.out.println(String.join("", 
+                "*     * ", "*     * ", "*     * ", "*      "
+        ));
+
+        System.out.println(String.join("", 
+                "*     * ", "*     * ", " *****  ", " ***** "
+        ));
+
+        System.out.println(String.join("", 
+                "*     * ", "*     * ", "      * ", "      *"
+        ));
+
+        System.out.println(String.join("", 
+                "*     * ", "*     * ", "      * ", "      *"
+        ));
+
+        System.out.println(String.join("", 
+                " *****  ", " *****  ", " *****  ", " ***** "
+        ));
+    }
+}
