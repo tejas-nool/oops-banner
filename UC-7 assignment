@@ -1,0 +1,98 @@
+# oops-banner:UC-7 assignment
+public class OOPSBannerApp {
+
+    // Static Inner Class
+    static class CharacterPatternMap {
+
+        private char character;
+        private String[] pattern;
+
+        public CharacterPatternMap(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        public char getCharacter() {
+            return character;
+        }
+
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    // Centralized Character Library
+    static CharacterPatternMap[] characterLibrary = {
+
+        new CharacterPatternMap('O', new String[]{
+                " ***** ",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                " ***** "
+        }),
+
+        new CharacterPatternMap('P', new String[]{
+                "***** ",
+                "*     *",
+                "*     *",
+                "***** ",
+                "*      ",
+                "*      ",
+                "*      "
+        }),
+
+        new CharacterPatternMap('S', new String[]{
+                " *****",
+                "*     ",
+                "*     ",
+                " *****",
+                "      *",
+                "      *",
+                " *****"
+        })
+    };
+
+    public static void main(String[] args) {
+
+        String word = "OOPS";
+        String[] bannerLines = new String[7];
+
+        for (int row = 0; row < 7; row++) {
+            StringBuilder lineBuilder = new StringBuilder();
+
+            for (char c : word.toCharArray()) {
+                String[] pattern = getPatternForCharacter(c);
+                lineBuilder.append(pattern[row]).append(" ");
+            }
+
+            bannerLines[row] = lineBuilder.toString();
+        }
+
+        for (String line : bannerLines) {
+            System.out.println(line);
+        }
+    }
+
+    // Lookup Method
+    public static String[] getPatternForCharacter(char character) {
+
+        for (CharacterPatternMap map : characterLibrary) {
+            if (map.getCharacter() == character) {
+                return map.getPattern();
+            }
+        }
+
+        return new String[]{
+                "       ",
+                "       ",
+                "       ",
+                "       ",
+                "       ",
+                "       ",
+                "       "
+        };
+    }
+}
